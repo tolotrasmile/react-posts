@@ -3,6 +3,7 @@ import { Route, Switch } from 'react-router'
 import { NavLink } from 'react-router-dom'
 import PostList from './containers/post.list.container'
 import PostDetails from './containers/post.details.container'
+import PostForm from './containers/post.from.container'
 
 const About = () => {
   return (<div>About</div>)
@@ -11,14 +12,14 @@ const About = () => {
 export default class App extends React.Component {
   render () {
     return <div>
-      <nav className='navbar navbar-dark bg-dark'>
-        <NavLink to='/about' className='navbar-brand'>Posts App</NavLink>
-        <ul className='navbar-nav'>
-          <li className='nav-item'>
-            <NavLink exact to='/' className='nav-link' activeClassName='active'>Home</NavLink>
+      <nav>
+        <NavLink to='/about'>Posts App</NavLink>
+        <ul>
+          <li>
+            <NavLink exact to='/' activeClassName='active'>Home</NavLink>
           </li>
-          <li className='nav-item'>
-            <NavLink to='/about' className='nav-link' activeClassName='active'>About</NavLink>
+          <li>
+            <NavLink to='/about' activeClassName='active'>About</NavLink>
           </li>
         </ul>
       </nav>
@@ -26,6 +27,7 @@ export default class App extends React.Component {
         <Switch>
           <Route exact path='/' component={PostList} />
           <Route exact path='/posts/:id' component={PostDetails} />
+          <Route exact path='/create-post/' component={PostForm} />
           <Route path='/about' component={About} />
         </Switch>
       </div>

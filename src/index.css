@@ -1,1 +1,47 @@
-@import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+/*@import '../node_modules/modern-normalize/modern-normalize.css';*/
+body {
+  background-color: #eeeeee;
+}
+
+td, th {
+  background-color: rgb(253, 253, 253);
+  padding: 10px;
+}
+
+button {
+  padding: 0.5rem;
+  color: #ffffff;
+}
+
+.bg-primary {
+  background-color: #0062cc;
+}
+
+.bg-gray {
+  background-color: #edf0f5;
+}
+
+.action {
+  width: auto;
+}
+
+.bg-danger {
+  background-color: #ff6f60;
+}
+
+table {
+  width: 100%;
+}
+
+.fade-enter {
+  opacity: 0.1;
+}
+
+.fade-enter.fade-enter-active {
+  opacity: 1;
+  transition: opacity 500ms;
+}
+
+.fade-leave.fade-leave-active {
+
+}
