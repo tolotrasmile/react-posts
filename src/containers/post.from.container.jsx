@@ -2,7 +2,13 @@ import React from 'react'
 import { Field, reduxForm } from 'redux-form'
 
 const PostForm = props => {
-  const { handleSubmit, reset } = props
+
+  const handleSubmit = event => {
+    event.preventDefault()
+    console.log(event)
+  }
+
+  const { reset } = props
   return (
     <form onSubmit={handleSubmit}>
       <div>

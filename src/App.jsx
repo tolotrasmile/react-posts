@@ -27,7 +27,7 @@ export default class App extends React.Component {
         <Switch>
           <Route exact path='/' component={PostList} />
           <Route exact path='/posts/:id' component={PostDetails} />
-          <Route exact path='/create-post/' component={() => <PostForm onSubmit={showResult} />} />
+          <Route exact path='/create-post/' component={PostForm} />
           <Route path='/about' component={About} />
         </Switch>
       </div>
