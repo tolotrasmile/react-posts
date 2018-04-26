@@ -1,65 +1,49 @@
-import React, { Component } from 'react'
-import { createPost } from '../store/actions/posts.actions'
-import { connect } from 'react-redux'
+import React from 'react'
 import { Field, reduxForm } from 'redux-form'
 
-const config = {
-  form: 'createPostForm',
-  fields: ['title', 'description', 'author']
+const PostForm = props => {
+  const { handleSubmit, reset } = props
+  return (
+    <form onSubmit={handleSubmit}>
+      <div>
+        <label>First Name</label>
+        <div>
+          <Field
+            name="firstName"
+            component="input"
+            type="text"
+            placeholder="First Name"
+          />
+        </div>
+      </div>
+      <div>
+        <label>Last Name</label>
+        <div>
+          <Field
+            name="lastName"
+            component="input"
+            type="text"
+            placeholder="Last Name"
+          />
+        </div>
+      </div>
+      <div>
+        <label>Email</label>
+        <div>
+          <Field
+            name="email"
+            component="input"
+            type="email"
+            placeholder="Email"
+          />
+        </div>
+      </div>
+      <div>
+        <button type="submit">Submit</button>
+        <button type="button" onClick={reset}>Clear Values</button>
+      </div>
+    </form>
+  )
 }
 
-class PostForm extends Component {
-  state = { post: {} }
-
-  render () {
-    console.log(this.props)
-    const { handleSubmit, pristine, reset, submitting } = this.props
-    return (
-      <form onSubmit={handleSubmit}>
-        <h1>Nouveau poste</h1>
-        <div>
-          <label>Title</label>
-          <div>
-            <Field
-              name="title"
-              component="input"
-              type="text"
-              placeholder="Title"
-            />
-          </div>
-        </div>
-        <div>
-          <label>Description</label>
-          <div>
-            <Field
-              name="description"
-              component="input"
-              type="text"
-              placeholder="Title"
-            />
-          </div>
-        </div>
-        <div>
-          <label>Author</label>
-          <div>
-            <Field
-              name="author"
-              component="input"
-              type="text"
-              placeholder="Title"
-            />
-          </div>
-        </div>
-        <button type="submit">
-          Submit
-        </button>
-      </form>
-    )
-  }
-}
-
-
-// ({ ...bindActionCreators({ fetchPostById }, dispatch) })
-const mapDispatchToProps = dispatch => ({ addPost: (post) => createPost(post)(dispatch) })
-
-export default connect(null, mapDispatchToProps)(reduxForm(config)(PostForm))
+export default reduxForm({ form: 'simple' })(PostForm)

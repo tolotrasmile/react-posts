@@ -27,10 +27,13 @@ export default class App extends React.Component {
         <Switch>
           <Route exact path='/' component={PostList} />
           <Route exact path='/posts/:id' component={PostDetails} />
-          <Route exact path='/create-post/' component={PostForm} />
+          <Route exact path='/create-post/' component={() => <PostForm onSubmit={showResult} />} />
           <Route path='/about' component={About} />
         </Switch>
       </div>
     </div>
   }
 }
+
+const sleep = ms => new Promise(resolve => setTimeout(resolve, ms))
+let showResult = (values) => sleep(100).then(() => console.log(values))
